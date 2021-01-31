@@ -93,7 +93,7 @@ def mission(dataset):
     ))
 
 if __name__ == '__main__':
-    path = "/Users/gregorymuradreis/Desktop/Log_Files_BBC_Jan_30_2021"
+    path = "Log_Files_BBC_Jan_30_2021"
     lst=[]
     lst_path=[]
     for file in os.listdir(path):
@@ -110,7 +110,7 @@ if __name__ == '__main__':
     import csv
 
     temp_log = 'Logs2021/temp_log.csv'
-    with open("/Users/gregorymuradreis/Desktop/Log_Files_BBC_Jan_30_2021/"+option, 'r') as logfile, open(temp_log, 'w') as csvfile:
+    with open("Log_Files_BBC_Jan_30_2021/"+option, 'r') as logfile, open(temp_log, 'w') as csvfile:
         reader = csv.reader(logfile, delimiter=';')
         writer = csv.writer(csvfile, delimiter=';', )
         writer.writerows(reader)
