@@ -261,6 +261,33 @@ if __name__ == '__main__':
     lr_oct_2020_2 = "Logs/LittleRiver/20201004_171844_TestForLittleRiver_IVER2-218.csv"
     lr_oct_2020_3 = "Logs/LittleRiver/20201004_180324_LittleRiverOct4_IVER2-218.csv"
 
+    import base64
+    @st.experimental_memo
+    def get_img_as_base64(file):
+        with open(file, "rb") as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
+    img = get_img_as_base64("image.jpg")
+
+    page_bg_img = f"""
+    <style>
+    [data-testid="stAppViewContainer"] > .main {{
+    background-color: #F1FFFB;
+    }}
+    [data-testid="stSidebar"] > div:first-child {{
+    background-color: #74DCBE;
+    }}
+    [data-testid="stHeader"] {{
+    background: rgba(0,0,0,0);
+    }}
+    [data-testid="stToolbar"] {{
+    right: 2rem;
+    }}
+    </style>
+    """
+
+    st.markdown(page_bg_img, unsafe_allow_html=True)
+
     st.title("FIU's Interdisciplinary Initiative for Autonomous Systems in Environmental Research")
     st.header("Saving Biscayne Bay ")
 
