@@ -103,8 +103,14 @@ def mission(dataset):
                 size=20,
                 color="RebeccaPurple"),
             title_font_color="orange",
-            title_font_size=20
+            title_font_size=20,
         )
+        course_fig.update_layout({
+        "plot_bgcolor": "rgb(232, 233, 234)",
+        "paper_bgcolor": "rgba(0, 0, 0,0)",
+        })
+
+
         st.plotly_chart(course_fig, use_container_width=True)
 
     def generate_plot_natively(plot_par):
@@ -133,7 +139,7 @@ def mission(dataset):
         with st.spinner('⌛⌛ Generating plot for desired parameter... '):
             #generate_plots(plot_parameter)
             generate_plot_opt(plot_parameter)
-            st.success('Plot was successful!')
+            # st.success('Plot was successful!')
 
 
 
@@ -283,6 +289,18 @@ if __name__ == '__main__':
     [data-testid="stToolbar"] {{
     right: 2rem;
     }}
+    [data-testid="css-15tx938"] {{
+    font-size: 18px;
+    color: rgba(0,0,0,0);
+    margin-bottom: 0.5rem;
+    height: auto;
+    min-height: 1.5rem;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    }}
     </style>
     """
 
@@ -351,7 +369,7 @@ if __name__ == '__main__':
                 mission(var)
     st.sidebar.subheader("Contact Us")
     st.sidebar.markdown("**Gregory Murad Reis, PhD**")
-    st.sidebar.write("Website: [link](https://www.gregoryreis.com)")
+    st.sidebar.write("[My website](https://www.gregoryreis.com)")
     st.sidebar.write("+1(305)348-7852")
     # mission(ds_option, lr_lat, lr_long)
 
