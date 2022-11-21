@@ -42,6 +42,7 @@ def mission(dataset):
 
 
     st.subheader("Map")
+    st.write("Hover over the markers to see more information.")
     zoom_lat = partial_ds['lat'].mean()
     zoom_long = partial_ds['lon'].mean()
 
@@ -92,7 +93,19 @@ def mission(dataset):
         st.pyplot(fig)
 
     def generate_plot_opt(plot_par):
-        st.line_chart(partial_ds[plot_par])
+        # st.line_chart(partial_ds[plot_par])
+        import plotly.express as px
+        course_fig = px.line(entire_ds, x="Time hh:mm:ss", y=plot_par,
+                            title=plot_par)
+        # course_fig.update_traces(marker_color='red')
+        course_fig.update_layout(
+            font=dict(
+                size=20,
+                color="RebeccaPurple"),
+            title_font_color="orange",
+            title_font_size=20
+        )
+        st.plotly_chart(course_fig, use_container_width=True)
 
     def generate_plot_natively(plot_par):
         # entire_ds["Time hh:mm:ss"]
@@ -113,14 +126,14 @@ def mission(dataset):
         # st.altair_chart(pd.DataFrame({"index":entire_ds["Time hh:mm:ss"],
         #                               plot_par:partial_ds[plot_par]}))
 
-        plot_parameter = st.radio("Pick one", ["ODO mg/L","Temperature (c)", "pH", "Total Water Column (m)"])
-        st.markdown("**Dataset collected on:**")
-        entire_ds["Date"][0]
-        if plot_parameter:
-            with st.spinner('⌛⌛ Generating plot for desired parameter... '):
-                #generate_plots(plot_parameter)
-                generate_plot_natively(plot_parameter)
-                # st.success('Plot was successful!')
+    plot_parameter = st.selectbox("Pick one", ["ODO mg/L","Temperature (c)", "pH", "Total Water Column (m)"])
+    st.markdown("**Dataset collected on:**")
+    entire_ds["Date"][0]
+    if plot_parameter:
+        with st.spinner('⌛⌛ Generating plot for desired parameter... '):
+            #generate_plots(plot_parameter)
+            generate_plot_opt(plot_parameter)
+            st.success('Plot was successful!')
 
 
 
