@@ -132,7 +132,7 @@ def mission(dataset):
         # st.altair_chart(pd.DataFrame({"index":entire_ds["Time hh:mm:ss"],
         #                               plot_par:partial_ds[plot_par]}))
 
-    plot_parameter = st.selectbox("Pick one", ["ODO mg/L","Temperature (c)", "pH", "Total Water Column (m)"])
+    plot_parameter = st.selectbox("Select one parameter", ["ODO mg/L","Temperature (c)", "pH", "Total Water Column (m)"])
     st.markdown("**Dataset collected on:**")
     entire_ds["Date"][0]
     if plot_parameter:
