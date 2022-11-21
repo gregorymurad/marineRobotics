@@ -41,8 +41,7 @@ def mission(dataset):
     # entire_ds = entire_ds_[entire_ds_["Salinity (ppt)"] > 10]
 
 
-    st.subheader("Map")
-    st.write("Hover over the markers to see more information.")
+    st.subheader("Hover over the markers in the map to check the water data")
     zoom_lat = partial_ds['lat'].mean()
     zoom_long = partial_ds['lon'].mean()
 
@@ -144,7 +143,7 @@ def mission(dataset):
 
 
 
-    st.subheader("Summary Table")
+    st.subheader("Summary Table of Raw Data")
     options = st.multiselect(
         'Select Desired Parameters',
         ["ODO mg/L","Temperature (c)", "pH", "Total Water Column (m)"])
