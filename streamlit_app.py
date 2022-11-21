@@ -306,7 +306,7 @@ if __name__ == '__main__':
             elif ds_data == "August 28th 2022":
                 ds_option = st.sidebar.selectbox("Select a Dataset:", options=["aug_2022_3","aug_2022_2","aug_2022_1"])
             elif ds_data == "November 16th 2022":
-                ds_option = st.sidebar.selectbox("Select a Dataset:", options=["bbc_nov_2022_1","bbc_nov_2022_2"])
+                ds_option = st.sidebar.selectbox("Select a Dataset:", options=["nov_2022_1","nov_2022_2"])
             if ds_option:
                 # get the value of a variable given its name in a string
                 var = locals()['bbc_' + ds_option]
