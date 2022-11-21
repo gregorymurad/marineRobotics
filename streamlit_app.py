@@ -79,7 +79,7 @@ def mission(dataset):
             }
      ))
 
-    st.header("Plots")
+    st.header("Select a water parameter to check the data values over time")
 
     def generate_plots(plot_par):
         x = entire_ds["Time hh:mm:ss"]
@@ -95,8 +95,9 @@ def mission(dataset):
     def generate_plot_opt(plot_par):
         # st.line_chart(partial_ds[plot_par])
         import plotly.express as px
-        course_fig = px.line(entire_ds, x="Time hh:mm:ss", y=plot_par,
-                            title=plot_par)
+        course_fig = px.line(entire_ds, x="Time hh:mm:ss", y=plot_par)
+        # course_fig = px.line(entire_ds, x="Time hh:mm:ss", y=plot_par,
+        #                      title=plot_par)
         # course_fig.update_traces(marker_color='red')
         course_fig.update_layout(
             font=dict(
@@ -132,9 +133,9 @@ def mission(dataset):
         # st.altair_chart(pd.DataFrame({"index":entire_ds["Time hh:mm:ss"],
         #                               plot_par:partial_ds[plot_par]}))
 
-    plot_parameter = st.selectbox("Select one parameter", ["ODO mg/L","Temperature (c)", "pH", "Total Water Column (m)"])
-    st.markdown("**Dataset collected on:**")
-    entire_ds["Date"][0]
+    plot_parameter = st.selectbox("", ["ODO mg/L","Temperature (c)", "pH", "Total Water Column (m)"])
+    st.write("Dataset collected on: {}".format(entire_ds["Date"][0]))
+
     if plot_parameter:
         with st.spinner('⌛⌛ Generating plot for desired parameter... '):
             #generate_plots(plot_parameter)
