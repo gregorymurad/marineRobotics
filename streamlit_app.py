@@ -256,9 +256,13 @@ if __name__ == '__main__':
     bbc_aug_2022_1 = "Logs/BBC/11 - Biscayne Bay - August 28th 2022/08-28-22-mission1.csv"
     bbc_aug_2022_2 = "Logs/BBC/11 - Biscayne Bay - August 28th 2022/08-28-22-mission2.csv"
     bbc_aug_2022_3 = "Logs/BBC/11 - Biscayne Bay - August 28th 2022/08-28-22-mission3.csv"
-    # |---> 12 - November 16th 2022
-    bbc_nov_2022_1 = "Logs/BBC/12 - Biscayne Bay - November 16th 2022/11-16-22-mission1.csv"
-    bbc_nov_2022_2 = "Logs/BBC/12 - Biscayne Bay - November 16th 2022/11-16-22-mission2.csv"
+    # |---> 12 - October 7th 2022
+    bbc_nov_2022_1 = "Logs/BBC/12 - Biscayne Bay - October 7th 2022/10-7-22-mission1.csv"
+    bbc_nov_2022_2 = "Logs/BBC/12 - Biscayne Bay - October 7th 2022/10-7-22-mission2.csv"
+    bbc_nov_2022_3 = "Logs/BBC/12 - Biscayne Bay - October 7th 2022/10-7-22-mission3.csv"
+    # |---> 13 - November 16th 2022
+    bbc_nov_2022_1 = "Logs/BBC/13 - Biscayne Bay - November 16th 2022/11-16-22-mission1.csv"
+    bbc_nov_2022_2 = "Logs/BBC/13 - Biscayne Bay - November 16th 2022/11-16-22-mission2.csv"
 
     # |-> LITTLE RIVER
     # |--> Data by date
@@ -318,7 +322,8 @@ if __name__ == '__main__':
                                       ("Biscayne Bay", "Little River"))
 
     if loc_option == "Biscayne Bay":
-        ds_data = st.sidebar.selectbox("Select a Date:", options=["November 16th 2022","August 28th 2022","February 4th 2022",
+        ds_data = st.sidebar.selectbox("Select a Date:", options=["November 16th 2022","October 7th 2022",
+                                                                  "August 28th 2022","February 4th 2022",
                                                                   "December 16th 2021","October 21st 2021",
                                                                   "September 2nd 2021", "June 9th 2021",
                                                                   "March 16th 2021", "February 13th 2021",
@@ -350,6 +355,8 @@ if __name__ == '__main__':
                 ds_option = st.sidebar.selectbox("Select a Dataset:", options=["feb_2022"])
             elif ds_data == "August 28th 2022":
                 ds_option = st.sidebar.selectbox("Select a Dataset:", options=["aug_2022_3","aug_2022_2","aug_2022_1"])
+            elif ds_data == "October 7th 2022":
+                ds_option = st.sidebar.selectbox("Select a Dataset:", options=["oct_2022_1", "oct_2022_2", "oct_2022_3"])
             elif ds_data == "November 16th 2022":
                 ds_option = st.sidebar.selectbox("Select a Dataset:", options=["nov_2022_1","nov_2022_2"])
             if ds_option:
